@@ -4,7 +4,7 @@ from django.http import HttpResponse
 
 def listar_productos(request):
     productos = producto.objects.all()
-    return render(request, 'herreira/listar_productos.html', {'productos': productos})
+    return render(request, 'herreria/listar_productos.html', {'productos': productos})
 def listar_pedidos(request):
     pedidos = pedido.objects.all()    
     return render(request, 'herreria/listar_pedidos.html', {'pedidos': pedidos})
