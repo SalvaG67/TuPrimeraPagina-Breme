@@ -16,7 +16,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from herreria import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', views.inicio, name='inicio'),
+    path('about/', views.about, name='about'),
+    path('productos/', views.listar_productos, name='listar_productos'),
+    path('pedidos/', views.listar_pedidos, name='listar_pedidos'),
+
 ]

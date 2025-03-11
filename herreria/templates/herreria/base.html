@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col">
+                <a class="btn btn-primary" href="{% url 'inicio' %}">Inicio</a>
+            </div>
+            <div class="col">
+                <a class="btn btn-info" href="{% url 'about' %}">Acerca de</a>
+            </div>
+            <div class="col">
+                <a class="btn btn-success" href="{% url 'listar_productos' %}">Productos</a>
+            </div>
+            <div class="col">
+                <a class="btn btn-warning" href="{% url 'listar_pedidos' %}">Pedidos</a>
+            </div>
+        </div>
+    </div>
+    {% block content %}
+    {% endblock content %}
+</body>
+</html>
