@@ -18,7 +18,7 @@ class pedido (models.Model):
     total = models.FloatField()
 
     def __str__(self):
-        return self.cliente
+        return f"pedido de {self.cliente.nombre}"
 
 class cliente(models.Model):
     nombre = models.CharField(max_length=50)
