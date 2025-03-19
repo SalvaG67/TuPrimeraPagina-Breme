@@ -36,6 +36,15 @@
                 </tbody>
             </table>
         </div>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Crear Pedido</button>
+        </form>
+        <form action="delete" method="post">
+            {% csrf_token %}
+            <button type="submit">Eliminar Pedido</button>
+        </form>
     {% endblock %}
 </body>
 </html>

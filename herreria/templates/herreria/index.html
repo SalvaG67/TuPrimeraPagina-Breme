@@ -1,0 +1,9 @@
+{% extends 'herreria/base.html' %}
+{% block content %}
+<h1>productos</h1>
+<div>
+    <a href="{% url 'producto:pedidos_list' %}">pedidos</a>
+    <br>
+    <a href="{% url 'producto:pedido_create' %}">crear pedido</a>
+</div>\
+{% endblock content %}

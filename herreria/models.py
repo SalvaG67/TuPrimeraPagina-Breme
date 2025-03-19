@@ -23,7 +23,7 @@ class pedido (models.Model):
 class cliente(models.Model):
     nombre = models.CharField(max_length=50)
     apellido = models.CharField(max_length=50)
-    email = models.EmailField(max_length=254)
+    email = models.EmailField(max_length=254, blank=True)
 
     def __str__(self):
         return self.nombre
