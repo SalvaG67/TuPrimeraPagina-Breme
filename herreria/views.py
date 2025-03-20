@@ -4,6 +4,7 @@ from django.urls import reverse_lazy
 from .models import producto, pedido, cliente, vendedor
 from django.http import HttpResponse
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
+from django.contrib.auth.views import LoginView 
 
 #def productos_list(request):
 #    productos = producto.objects.all()
@@ -74,3 +75,8 @@ class productodeleteview(DeleteView):
     model = producto
     template_name = 'herreria/producto_confirm_delete.html'
     success_url = reverse_lazy('listar_productos')
+
+class miloginview(LoginView):
+    template_name = 'herreria/login.html'
+    authentication_form = forms.loginForm
+    success_url = reverse_lazy('inicio')

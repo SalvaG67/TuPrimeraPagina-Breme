@@ -4,30 +4,73 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        /* Agregamos un poco de estilo para alinear los botones */
+        .btn-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .btn-container .col {
+            display: flex;
+            align-items: center;  /* Asegura que todos los botones estén alineados verticalmente */
+            justify-content: center;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s;
+        }
+    </style>
 </head>
 <body>
     <div class="container mt-4" style="padding: 20px; text-align: center;">
-        <div class="row" style="display: flex; justify-content: center; gap: 20px;">
+        <div class="btn-container">
             <div class="col">
-                <a class="btn" href="{% url 'inicio' %}" style="padding: 10px 20px; background-color: #007bff; color: white; text-decoration: none; border-radius: 5px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); transition: background-color 0.3s;">
+                <a class="btn" href="{% url 'inicio' %}" style="background-color: #007bff;">
                     Inicio
                 </a>
             </div>
             <div class="col">
-                <a class="btn" href="{% url 'about' %}" style="padding: 10px 20px; background-color: #17a2b8; color: white; text-decoration: none; border-radius: 5px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); transition: background-color 0.3s;">
+                <a class="btn" href="{% url 'about' %}" style="background-color: #17a2b8;">
                     Acerca de
                 </a>
             </div>
-            <div class="col">
-                <a class="btn" href="{% url 'listar_productos' %}" style="padding: 10px 20px; background-color: #28a745; color: white; text-decoration: none; border-radius: 5px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); transition: background-color 0.3s;">
-                    Productos
-                </a>
-            </div>
-            <div class="col">
-                <a class="btn" href="{% url 'listar_pedidos' %}" style="padding: 10px 20px; background-color: #96661a; color: white; text-decoration: none; border-radius: 5px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); transition: background-color 0.3s;">
-                    Pedidos
-                </a>
-            </div>
+
+            {% if user.is_authenticated %}
+                <div class="col">
+                    <a class="btn" href="{% url 'listar_productos' %}" style="background-color: #28a745;">
+                        Productos
+                    </a>
+                </div>
+                <div class="col">
+                    <a class="btn" href="{% url 'listar_pedidos' %}" style="background-color: #96661a;">
+                        Pedidos
+                    </a>
+                </div>
+    
+                <!-- Aseguramos que el botón Cerrar sesión se alinee con los otros -->
+                <div class="col">
+                    <form method="POST" action="{% url 'logout' %}">
+                        {% csrf_token %}
+                        <button type="submit" class="btn" style="background-color: #ff0000;">
+                            Cerrar sesión
+                        </button>
+                    </form>
+                </div>
+            {% else %}
+                <div class="col">
+                    <a class="btn" href="{% url 'login' %}" style="background-color: #28a745;">
+                        Iniciar sesión
+                    </a>
+                </div>
+            {% endif %}
         </div>
     </div>
 

@@ -10,3 +10,10 @@ class ProductoForm(forms.ModelForm):
     class Meta:
         model = models.producto
         fields = '__all__'
+
+from django.contrib.auth.forms import AuthenticationForm
+
+class loginForm(AuthenticationForm):
+    class meta:
+        model = AuthenticationForm
+        fields = ['username', 'password']

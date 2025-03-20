@@ -1,0 +1,11 @@
+{% extends 'herreria/base.html' %}
+
+{% block content %}
+  <h1>Has cerrado sesión correctamente.</h1>
+  <form method="POST" action="{% url 'logout' %}">
+    {% csrf_token %}
+  </form>
+  <a href="{% url 'inicio' %}" class="btn" style="padding: 10px 20px; background-color: #007bff; color: white; text-decoration: none; border-radius: 5px;">
+    Volver a la página de inicio
+  </a>
+{% endblock %}

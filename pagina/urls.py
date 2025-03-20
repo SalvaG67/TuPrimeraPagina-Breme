@@ -19,21 +19,24 @@ from django.urls import path
 from herreria import views
 from django.conf.urls.static import static
 from django.conf import settings 
+from django.contrib.auth.views import LogoutView
 app_name = 'herreria'
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.inicio, name='inicio'),
     path('about/', views.about, name='about'),
-    
     path('pedidos/list/', views.pedidos_list, name='listar_pedidos'),
     path('pedidos/update/<int:pk>', views.pedido_update, name='pedido_update'),
     path('pedidos/delete/<int:pk>', views.pedido_delete, name='pedido_delete'),
+    path('logout/', LogoutView.as_view(template_name='herreria/logout.html'), name='logout'),
 ]
 urlpatterns += [
     path('productos/list/', views.Productolistview.as_view(), name='listar_productos'),
     path('productos/create/', views.productocreateview.as_view(), name='producto_create'),
     path('productos/update/<int:pk>', views.productoupdateview.as_view(), name='producto_update'),
     path('productos/delete/<int:pk>/', views.productodeleteview.as_view(), name='producto_delete'),
+    path('login/', views.miloginview.as_view(), name='login'),
+
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 if settings.DEBUG:
