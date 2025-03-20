@@ -3,7 +3,7 @@ from django.db import models
 # Create your models here.
 class producto(models.Model):
     nombre = models.CharField(max_length=50, unique=True, blank=False,)
-    imagen = models.ImageField(upload_to='imagenes/', null=True, blank=True)
+    imagen = models.ImageField(upload_to='productos/', null=True, blank=True)
     descripcion = models.TextField()
     precio = models.FloatField()
     stock = models.IntegerField()

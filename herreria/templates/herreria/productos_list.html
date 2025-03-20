@@ -1,12 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    {% extends 'herreria/base.html' %}
+{% extends 'herreria/base.html' %}
 
 {% block content %}
     <div class="container mt-4">
@@ -18,6 +10,7 @@
                     <th>Descripción</th>
                     <th>Precio</th>
                     <th>Stock</th>
+                    <th>Imagen</th>
                 </tr>
             </thead>
             <tbody>
@@ -27,11 +20,16 @@
                     <td>{{ producto.descripcion }}</td>
                     <td>${{ producto.precio }}</td>
                     <td>{{ producto.stock }}</td>
+                    <td>
+                        {% if producto.imagen %}
+                            <img src="{{ producto.imagen.url }}" alt="{{ producto.nombre }}" width="100">
+                        {% else %}
+                            <span>No disponible</span>
+                        {% endif %}
+                    </td>
                 </tr>
                 {% endfor %}
             </tbody>
         </table>
     </div>
 {% endblock %}
-</body>
-</html>
