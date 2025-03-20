@@ -36,7 +36,11 @@
                     <p><strong>Fecha:</strong> {{ pedido.fecha }}</p>
                     <p><strong>Total:</strong> {{ pedido.total }}</p>
 
+                    <!-- Botón de editar -->
                     <a href="{% url 'pedido_update' pedido.pk %}" style="padding: 8px 16px; background-color: #28a745; color: white; text-decoration: none; border-radius: 5px; display: inline-block; margin-top: 10px;">Editar Pedido</a>
+
+                    <!-- Botón de eliminar -->
+                    <a href="{% url 'pedido_delete' pedido.pk %}" style="padding: 8px 16px; background-color: #dc3545; color: white; text-decoration: none; border-radius: 5px; display: inline-block; margin-top: 10px;">Eliminar Pedido</a>
                 </div>
             {% empty %}
                 <p>No hay pedidos disponibles.</p>

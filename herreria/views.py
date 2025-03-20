@@ -36,3 +36,10 @@ def pedido_update(request, pk: int):
             print(form.errors)  
     return render(request, 'herreria/pedido_update.html', {'form': form})
 
+
+def pedido_delete(request, pk: int):
+    query = pedido.objects.get(pk=pk)
+    if request.method == 'POST':
+        query.delete()
+        return redirect('listar_pedidos')
+    return render(request, 'herreria/pedido_confirm_delete.html', {'object': query})
