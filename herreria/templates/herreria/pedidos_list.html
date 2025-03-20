@@ -35,14 +35,16 @@
                     <p><strong>Vendedor:</strong> {{ pedido.vendedor.nombre }} {{ pedido.vendedor.apellido }}</p>
                     <p><strong>Fecha:</strong> {{ pedido.fecha }}</p>
                     <p><strong>Total:</strong> {{ pedido.total }}</p>
+
+                    <a href="{% url 'pedido_update' pedido.pk %}" style="padding: 8px 16px; background-color: #28a745; color: white; text-decoration: none; border-radius: 5px; display: inline-block; margin-top: 10px;">Editar Pedido</a>
                 </div>
             {% empty %}
                 <p>No hay pedidos disponibles.</p>
             {% endfor %}
         </div>
 
-        <h2>Crear un nuevo Pedido</h2>
-        <form method="post" style="border: 1px solid #ddd; padding: 20px; border-radius: 8px; background-color: #f9f9f9; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);">
+        <h2 align="center">Crear un nuevo Pedido</h2>
+        <form method="post" align="center">
             {% csrf_token %}
             
             <div style="margin-bottom: 15px;">

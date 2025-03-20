@@ -17,8 +17,6 @@ class pedido (models.Model):
     productos = models.ManyToManyField('herreria.producto')
     fecha = models.DateTimeField(auto_now_add=True)
     total = models.FloatField()
-    total_productos = models.IntegerField()
-
     def __str__(self):
         return f"pedido de {self.cliente.nombre}"
 

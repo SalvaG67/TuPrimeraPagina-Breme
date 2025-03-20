@@ -19,13 +19,14 @@ from django.urls import path
 from herreria import views
 from django.conf.urls.static import static
 from django.conf import settings 
-
+app_name = 'herreria'
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.inicio, name='inicio'),
     path('about/', views.about, name='about'),
     path('productos/list/', views.productos_list, name='listar_productos'),
     path('pedidos/list/', views.pedidos_list, name='listar_pedidos'),
+    path('pedidos/update/<int:pk>', views.pedido_update, name='pedido_update'),
 ]
 
 if settings.DEBUG:

@@ -1,0 +1,63 @@
+{% extends 'herreria/base.html' %}
+
+{% block content %}
+    <div class="container mt-5" align="center">
+        <h1 class="mb-4">Actualizar Pedido</h1>
+
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <fieldset style="border: 2px solid #ff0000; padding: 20px; border-radius: 10px; width: 100%; max-width: 800px; margin: 0 auto;">
+                    <legend style="font-weight: bold; color: rgb(0, 0, 0);">Formulario de Actualización de Pedido</legend>
+
+                    <form method="post">
+                        {% csrf_token %}
+
+                        <div class="form-group mb-3">
+                            <label for="cliente">Selecciona un Cliente</label>
+                            <select name="cliente" id="cliente">
+                                <option value="" disabled selected>Selecciona un cliente</option>
+                                {% for cliente in form.cliente.field.queryset %}
+                                    <option value="{{ cliente.id }}" {% if cliente.id == form.cliente.value %} selected {% endif %}>{{ cliente.nombre }} {{ cliente.apellido }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label for="vendedor">Selecciona un Vendedor</label>
+                            <select name="vendedor" id="vendedor">
+                                <option value="" disabled selected>Selecciona un vendedor</option>
+                                {% for vendedor in form.vendedor.field.queryset %}
+                                    <option value="{{ vendedor.id }}" {% if vendedor.id == form.vendedor.value %} selected {% endif %}>{{ vendedor.nombre }} {{ vendedor.apellido }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label for="productos">Selecciona los productos</label>
+                            <select name="productos" id="productos" multiple>
+                                {% for producto in form.productos.field.queryset %}
+                                    <option value="{{ producto.id }}" {% if producto.id in form.productos.value %} selected {% endif %}>{{ producto.nombre }}</option>
+                                {% endfor %}
+                            </select>
+                            <small class="text-muted">Puedes seleccionar múltiples productos</small>
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label for="total">Total del Pedido</label>
+                            {{ form.total }}
+                        </div>
+
+                        <div class="d-flex justify-content-between mt-4">
+                            <button type="submit" style="padding: 10px 20px; background-color: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer;">
+                                Guardar Cambios
+                            </button>
+                            <a href="{% url 'listar_pedidos' %}" style="padding: 10px 20px; background-color: #6c757d; color: white; border-radius: 5px; text-decoration: none;">
+                                Cancelar
+                            </a>
+                        </div>
+                    </form>
+                </fieldset>
+            </div>
+        </div>
+    </div>
+{% endblock %}
