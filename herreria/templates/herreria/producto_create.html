@@ -1,5 +1,42 @@
-<form method="post" enctype="multipart/form-data">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Crear Producto</button>
-</form>
+{% extends 'herreria/base.html' %}
+
+{% block content %}
+  <div style="max-width: 600px; margin: 0 auto; padding: 30px; background-color: #ffffff; border-radius: 15px; box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1); border: 2px solid #ddd;">
+    <h1 style="text-align: center; color: #007bff; font-size: 28px; font-family: 'Arial', sans-serif; font-weight: bold;">Crear Producto</h1>
+
+    <form method="post" enctype="multipart/form-data" style="text-align: left;">
+      {% csrf_token %}
+      
+      <div style="margin-bottom: 20px;">
+        <label style="font-size: 16px; font-weight: bold; color: #333;">Nombre del Producto</label>
+        {{ form.nombre }}
+      </div>
+      
+      <div style="margin-bottom: 20px;">
+        <label style="font-size: 16px; font-weight: bold; color: #333;">Descripción</label>
+        {{ form.descripcion }}
+      </div>
+      
+      <div style="margin-bottom: 20px;">
+        <label style="font-size: 16px; font-weight: bold; color: #333;">Precio</label>
+        {{ form.precio }}
+      </div>
+      
+      <div style="margin-bottom: 20px;">
+        <label style="font-size: 16px; font-weight: bold; color: #333;">Stock</label>
+        {{ form.stock }}
+      </div>
+
+      <div style="margin-bottom: 20px;">
+        <label style="font-size: 16px; font-weight: bold; color: #333;">Imagen del Producto</label>
+        {{ form.imagen }}
+      </div>
+      
+      <div style="text-align: center; margin-top: 30px;">
+        <button type="submit" style="padding: 12px 30px; background-color: #007bff; color: white; border: none; border-radius: 8px; font-size: 18px; cursor: pointer; width: 100%;">
+          Crear Producto
+        </button>
+      </div>
+    </form>
+  </div>
+{% endblock %}
