@@ -51,7 +51,13 @@ def pedido_delete(request, pk: int):
 class Productolistview(ListView):
     model = producto
     template_name = 'herreria/productos_list.html'
-    context_object_name = 'productos'  
+    context_object_name = 'productos'
+
+    def get_queryset(self):
+        query = self.request.GET.get('search', '')
+        if query:
+            return producto.objects.filter(nombre__icontains=query)
+        return producto.objects.all()  
 class productocreateview(CreateView):
     model = producto
     form_class = forms.ProductoForm
