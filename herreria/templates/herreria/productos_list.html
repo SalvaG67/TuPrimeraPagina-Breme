@@ -1,35 +1,22 @@
 {% extends 'herreria/base.html' %}
 
 {% block content %}
-    <div class="container mt-4">
-        <h1>Lista de Productos</h1>
-        <table class="table table-bordered">
-            <thead>
-                <tr>
-                    <th>Nombre</th>
-                    <th>Descripción</th>
-                    <th>Precio</th>
-                    <th>Stock</th>
-                    <th>Imagen</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for producto in productos %}
-                <tr>
-                    <td>{{ producto.nombre }}</td>
-                    <td>{{ producto.descripcion }}</td>
-                    <td>${{ producto.precio }}</td>
-                    <td>{{ producto.stock }}</td>
-                    <td>
-                        {% if producto.imagen %}
-                            <img src="{{ producto.imagen.url }}" alt="{{ producto.nombre }}" width="100">
-                        {% else %}
-                            <span>No disponible</span>
-                        {% endif %}
-                    </td>
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
-    </div>
+    <h1>Lista de Productos</h1>
+    <ul>
+        {% for producto in productos %}
+            <li>
+                <a href="{% url 'producto_update' producto.pk %}">{{ producto.nombre }}</a> - ${{ producto.precio }}
+
+                <!-- Mostrar la imagen del producto si existe -->
+                {% if producto.imagen %}
+                    <img src="{{ producto.imagen.url }}" alt="{{ producto.nombre }}" style="width: 100px; height: 100px;">
+                {% endif %}
+                <a href="{% url 'producto_update' producto.pk %}">Editar</a> | 
+                <a href="{% url 'producto_delete' producto.pk %}">Eliminar</a>
+            </li>
+        {% empty %}
+            <p>No hay productos disponibles.</p>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'producto_create' %}">Crear un nuevo Producto</a>
 {% endblock %}
