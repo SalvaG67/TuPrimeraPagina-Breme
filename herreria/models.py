@@ -2,7 +2,8 @@ from django.db import models
 
 # Create your models here.
 class producto(models.Model):
-    nombre = models.CharField(max_length=50)
+    nombre = models.CharField(max_length=50, unique=True, blank=False,)
+    imagen = models.ImageField(upload_to='imagenes/', null=True, blank=True)
     descripcion = models.TextField()
     precio = models.FloatField()
     stock = models.IntegerField()
@@ -16,6 +17,7 @@ class pedido (models.Model):
     productos = models.ManyToManyField('herreria.producto')
     fecha = models.DateTimeField(auto_now_add=True)
     total = models.FloatField()
+    total_productos = models.IntegerField()
 
     def __str__(self):
         return f"pedido de {self.cliente.nombre}"

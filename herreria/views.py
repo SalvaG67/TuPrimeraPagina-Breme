@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .forms import PedidoForm
 from .models import producto, pedido, cliente, vendedor
 from django.http import HttpResponse
@@ -11,13 +11,14 @@ def pedidos_list(request):
         form = PedidoForm(request.POST)
         if form.is_valid():
             form.save()
-    form = PedidoForm()
-    pedidos = pedido.objects.all()
+            return redirect('listar_pedidos') 
+    else:
+        form = PedidoForm()
+
+    pedidos = pedido.objects.all()  # Obtén los pedidos existentes
     return render(request, 'herreria/pedidos_list.html', {'pedidos': pedidos, 'form': form})
 def inicio(request):
     return render(request, 'herreria/inicio.html')
 def about(request):
     return render(request, 'herreria/about.html')
 
-def pedido_create(request):
-    return render(request, 'herreria/categoria_form.html',)
