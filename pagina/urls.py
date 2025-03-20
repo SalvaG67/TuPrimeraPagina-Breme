@@ -34,6 +34,7 @@ urlpatterns += [
     path('productos/create/', views.productocreateview.as_view(), name='producto_create'),
     path('productos/update/<int:pk>', views.productoupdateview.as_view(), name='producto_update'),
     path('productos/delete/<int:pk>/', views.productodeleteview.as_view(), name='producto_delete'),
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
