@@ -1,10 +1,34 @@
-# trabajo
-soy salvador breme, tengo 19 años estoy haciendo el curso de python con los chicos de coderhouse.
-estoy haciendo una pagina sobre una herreria en la que trabajo.
-estoy usando django apra crear la pagina, y un amigo me ayudo a hacer el front para que quede un poco mas ordenado, le dije que me ayude en lo mas minimo y asi quedo la pagina.
-espero que este bien y sea de su agrado.
-por las dudas, el super usuario es:
-usuario: salvador
-contraseña: 12345678
-el trabajo lo empece creando el proyecto pagina, luego creando la app herreria, ahi cree los modelos que iba a utilizar para asi poder crear las vistas y los guarde en la base de datos, despues cree los html para que se pueda navegar en la pagina mas eficientemente, en eso me ayudo mi amigo para que quede mas ordenado, (la herencia la hice yo y el me guio con algunos consejos), una vez hecho eso me dedique a hacer que la pagina me lleve a los lugares que deberian ir, me hubiera gustado hacer que el usuario pueda pedir directamente de la pagina y no desde el apartado admin, pero no logre entender como funcionaba asi que lo descarte.
-gracias.
+# Trabajo
+
+Python comision 75140
+
+Alumno: salvador breme
+
+## De que trata el proyecto
+
+El proyecto trata sobre una herreria, en la localidad donde vivo
+Es una herreria no muy grande donde somos 3 personas, la idea es
+Que la gente se vea con que se trabaja, ya que enrealidad no vendemos nada sino que hacemos los trabajos
+Pero para fines didacticos tube que hacer que vendamos cosas
+
+## Como ejecutarlo
+
+- Iniciar el entorno virtual: python -m venv env
+
+- Solo use django en el entorno virtual
+
+## Caracteristicas
+
+1. Es un proyecto que no tengo mucho tiempo para realizar, ya que la herreria al ser 3 personas hay mucho trabajo acumulado
+
+2. El proyecto esta hecho con django
+
+3. Toda la parte visual que se ve, me ayudo un amigo, decidi que sea minimalista y simple asi podia entender lo que podia como funcionaba 
+
+4. Para gran parte de las cosas me guie con codeium ya que las explicaciones que da sirven mucho para entender el codigo
+
+## Mejoras a futuro
+
+1. Hacer que la pagina sea mas funcional para la herreria
+
+2. Poner el apartado para hacer pedido de trabajo y no productos
