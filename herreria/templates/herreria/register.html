@@ -1,0 +1,31 @@
+{% extends 'herreria/base.html' %}
+
+{% block content %}
+  <div style="max-width: 400px; margin: auto; padding: 20px; border: 1px solid #ddd; border-radius: 8px; background-color: #f9f9f9;">
+    <h1 style="text-align: center;">Crear Cuenta</h1>
+    <form method="post">
+        {% csrf_token %}
+        <div style="margin-bottom: 15px;">
+            <label for="{{ form.username.id_for_label }}">{{ form.username.label }}</label>
+            {{ form.username }}
+        </div>
+        <div style="margin-bottom: 15px;">
+            <label for="{{ form.password1.id_for_label }}">{{ form.password1.label }}</label>
+            {{ form.password1 }}
+        </div>
+        <div style="margin-bottom: 15px;">
+            <label for="{{ form.password2.id_for_label }}">{{ form.password2.label }}</label>
+            {{ form.password2 }}
+        </div>
+        <button type="submit" style="width: 100%; padding: 10px; background-color: #007bff; color: white; border: none; border-radius: 5px;">
+            Crear Cuenta
+        </button>
+    </form>
+
+    <div style="text-align: center; margin-top: 20px;">
+      <a href="{% url 'login' %}" style="display: inline-block; padding: 10px; background-color: #6c757d; color: white; text-decoration: none; border-radius: 5px; width: 100%; text-align: center;">
+        ¿Ya tienes cuenta? Inicia sesión aquí
+      </a>
+    </div>
+  </div>
+{% endblock %}

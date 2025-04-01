@@ -19,7 +19,7 @@ Pero para fines didacticos tube que hacer que vendamos cosas
 
 ## Caracteristicas
 
-1. Es un proyecto que no tengo mucho tiempo para realizar, ya que la herreria al ser 3 personas hay mucho trabajo acumulado
+1. Es un proyecto que no tengo mucho tiempo para realizar, ya que la herreria al ser 3 personas, hay mucho trabajo acumulado
 
 2. El proyecto esta hecho con django
 

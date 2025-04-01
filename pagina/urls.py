@@ -29,6 +29,7 @@ urlpatterns = [
     path('pedidos/update/<int:pk>', views.pedido_update, name='pedido_update'),
     path('pedidos/delete/<int:pk>', views.pedido_delete, name='pedido_delete'),
     path('logout/', LogoutView.as_view(template_name='herreria/logout.html'), name='logout'),
+
 ]
 urlpatterns += [
     path('productos/list/', views.Productolistview.as_view(), name='listar_productos'),
@@ -36,7 +37,7 @@ urlpatterns += [
     path('productos/update/<int:pk>', views.productoupdateview.as_view(), name='producto_update'),
     path('productos/delete/<int:pk>/', views.productodeleteview.as_view(), name='producto_delete'),
     path('login/', views.miloginview.as_view(), name='login'),
-
+    path('register/', views.miregisterview.as_view(), name='register'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 if settings.DEBUG:

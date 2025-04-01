@@ -5,6 +5,7 @@ from .models import producto, pedido, cliente, vendedor
 from django.http import HttpResponse
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.contrib.auth.views import LoginView 
+from .forms import registerForm
 
 #def productos_list(request):
 #    productos = producto.objects.all()
@@ -79,4 +80,9 @@ class productodeleteview(DeleteView):
 class miloginview(LoginView):
     template_name = 'herreria/login.html'
     authentication_form = forms.loginForm
+    next_page = reverse_lazy('inicio')
+
+class miregisterview(CreateView):
+    form_class = registerForm
+    template_name = 'herreria/register.html'
     success_url = reverse_lazy('inicio')
