@@ -23,7 +23,7 @@
           
           <div style="text-align: center; margin-bottom: 10px;">
             {% if producto.imagen %}
-              <img src="{{ producto.imagen.url }}" alt="{{ producto.nombre }}" style="width: 500px; height: 400px; object-fit: cover; border-radius: 8px;">
+              <img src="{{ producto.imagen.url }}" alt="{{ producto.nombre }}" style="width: 300px; height: 300px; object-fit: cover; border-radius: 8px;">
             {% else %}
               <img src="/static/default-image.jpg" alt="Imagen no disponible" style="width: 100px; height: 100px; object-fit: cover; border-radius: 8px;">
             {% endif %}
