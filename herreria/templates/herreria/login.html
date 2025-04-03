@@ -8,13 +8,15 @@
         <div style="margin-bottom: 15px;">
             {{ form.as_p }}
         </div>
-        <button type="submit" style="width: 100%; padding: 10px; background-color: #007bff; color: white; border: none; border-radius: 5px;">
+        <button type="submit" 
+                style="width: 100%; padding: 10px; background-color: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer;">
             Login
         </button>
     </form>
 
     <div style="text-align: center; margin-top: 20px;">
-      <a href="{% url 'register' %}" style="display: inline-block; padding: 10px; background-color: #28a745; color: white; text-decoration: none; border-radius: 5px; width: 100%; text-align: center;">
+      <a href="{% url 'register' %}" 
+         style="display: block; padding: 10px; background-color: #28a745; color: white; text-decoration: none; border-radius: 5px; width: 100%; text-align: center; cursor: pointer;">
         Si no tienes cuenta, créate una aquí
       </a>
     </div>

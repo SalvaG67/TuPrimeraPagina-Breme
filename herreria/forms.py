@@ -27,5 +27,5 @@ class registerForm(UserCreationForm):
     
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.fields['password1'].label = 'Contraseña'
-        self.fields['password2'].label = 'Confirmar Contraseña'
+        self.fields['password1'].help_text = 'Contraseña'
+        self.fields['password2'].help_text = 'Confirmar Contraseña'
